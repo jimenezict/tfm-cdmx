@@ -1,6 +1,5 @@
 package com.uoc.tfm.controller;
 
-import com.uoc.tfm.domain.cdmx.Token;
 import com.uoc.tfm.service.ClientService;
 import com.uoc.tfm.commons.domain.StationsLocation;
 import com.uoc.tfm.commons.domain.StationsStatus;
@@ -16,8 +15,6 @@ public class ClientControllerImpl implements ClientController {
 
     private static Logger log = LoggerFactory.getLogger(ClientControllerImpl.class);
 
-    private static Token token;
-
     @Autowired
     private ClientService clientService;
 
@@ -31,11 +28,11 @@ public class ClientControllerImpl implements ClientController {
 
         try {
             stationsLocation = clientService.getStationsLocation();
-        } catch(Exception e) {
+        } catch (Exception e) {
             log.error("Fail on Location status collection {} due to: ", clientService.getServiceName(), e);
             return stationsLocation;
         }
-            log.info("Ending station collections: {} with {} registers",
+        log.info("Ending station collections: {} with {} registers",
                 clientService.getServiceName(),
                 stationsLocation.getStationLocationList().size());
         return stationsLocation;
@@ -50,7 +47,7 @@ public class ClientControllerImpl implements ClientController {
 
         try {
             stationStatus = clientService.getStationStatus();
-        } catch(Exception e) {
+        } catch (Exception e) {
             log.error("Fail on station status collection {} due to: ", clientService.getServiceName(), e);
             return stationStatus;
         }

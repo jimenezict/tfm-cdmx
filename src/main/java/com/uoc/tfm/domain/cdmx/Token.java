@@ -11,8 +11,17 @@ public class Token {
     private String refresh_token;
     private LocalDateTime expiresDate;
 
-    public Token() {
+    private static Token token;
+
+    private Token() {
         expiresDate = LocalDateTime.now();
+    }
+
+    public static Token getInstance() {
+        if(token == null) {
+            token = new Token();
+        }
+        return token;
     }
 
     public String getAccess_token() {

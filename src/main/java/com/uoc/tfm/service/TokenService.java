@@ -4,7 +4,8 @@ import com.uoc.tfm.domain.cdmx.Token;
 
 public interface TokenService {
 
-    boolean isTokenActive(Token token);
+    boolean isTokenActive();
 
-    Token generateNewToken();
+    void generateNewToken();
+
 }

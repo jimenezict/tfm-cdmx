@@ -11,21 +11,28 @@ public class TokenServiceImplTest {
 
     @Test
     public void isTokenActive_whenTokenIsNull() {
-        assertFalse(tokenService.isTokenActive(null));
+        assertFalse(tokenService.isTokenActive());
     }
 
     @Test
     public void isTokenActive_whenTokenIsNotNull_andExpiresInThePass() {
-        Token token = new Token();
+        Token token = Token.getInstance();
         token.setExpires_in(-1);
-        assertFalse(tokenService.isTokenActive(token));
+        assertFalse(tokenService.isTokenActive());
     }
 
     @Test
     public void isTokenActive_whenTokenIsNotNull_andExpiresInTheFuture() {
-        Token token = new Token();
-        token.setExpires_in(1);
-        assertTrue(tokenService.isTokenActive(token));
+        Token token = Token.getInstance();
+        token.setAccess_token("asdf");
+        token.setExpires_in(1000);
+        assertTrue(tokenService.isTokenActive());
+    }
+
+    @Test
+    public void generateNewToken_shouldReturnToken_withAccessToken() {
+        tokenService.generateNewToken();
+        assertTrue(Token.getInstance().getAccess_token().length() > 10);
     }
 
 }
