@@ -17,7 +17,7 @@ public class UrlManager {
     }
 
     public static String stationUrl(String accessToken) {
-        return "https://pubsbapi-latam.smartbike.com/api/v1/status.json?access_token=" + accessToken;
+        return "https://pubsbapi-latam.smartbike.com/api/v1/stations/status.json?access_token=" + accessToken;
     }
 
 }

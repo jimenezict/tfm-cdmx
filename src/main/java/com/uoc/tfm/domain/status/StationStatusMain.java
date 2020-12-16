@@ -2,38 +2,23 @@ package com.uoc.tfm.domain.status;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.List;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class StationStatusMain {
 
-    private long last_updated;
-    private int ttl;
-    private StationsStatus data;
+    private List<StationStatus> stationsStatus;
 
     public StationStatusMain(){
 
     }
 
-    public long getLast_updated() {
-        return last_updated;
+    public List<StationStatus> getStationsStatus() {
+        return stationsStatus;
     }
 
-    public void setLast_updated(long last_updated) {
-        this.last_updated = last_updated;
+    public void setStationsStatus(List<StationStatus> stationsStatus) {
+        this.stationsStatus = stationsStatus;
     }
 
-    public int getTtl() {
-        return ttl;
-    }
-
-    public void setTtl(int ttl) {
-        this.ttl = ttl;
-    }
-
-    public StationsStatus getData() {
-        return data;
-    }
-
-    public void setData(StationsStatus data) {
-        this.data = data;
-    }
 }

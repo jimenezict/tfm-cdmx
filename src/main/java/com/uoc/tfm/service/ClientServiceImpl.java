@@ -58,12 +58,14 @@ public class ClientServiceImpl implements ClientService {
     private StationsStatus mapStationsStatus(StationStatusMain stationStatus) {
         StationsStatus stationsStatus = new StationsStatus(now());
 
- /*
-        stationStatus.getData().getStations().forEach(x -> {
-            int size = x.getNum_bikes_available() + x.getNum_docks_available();
-            stationsStatus.addStation(x.getStation_id(),size, x.getNum_bikes_available());
+        stationStatus.getStationsStatus().forEach(x -> {
+            int size = x.getAvailability().getBikes() + x.getAvailability().getSlots();
+            stationsStatus.addStation(
+                    x.getId(),
+                    size,
+                    x.getAvailability().getBikes());
         });
- */
+
         return stationsStatus;
     }
 
