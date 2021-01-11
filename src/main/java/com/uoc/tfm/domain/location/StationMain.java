@@ -14,7 +14,7 @@ public class StationMain {
         return id;
     }
 
-    public void setId(int station_id) {
+    public void setId(int id) {
         this.id = id;
     }
 
